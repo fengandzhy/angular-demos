@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app='myScroll'>
+<head>
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+    <script type="text/javascript" src="../../../js/angular/angular.min.js"></script>
+</head>
+<body>
+
+    <div my-scroll>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <script>
+        angular.module('myScroll', [], angular.noop).directive('myScroll',function(){
+            var obj = {};
+            obj = {
+                restrict: 'A',
+                link: function(scope, elem, attr){
+                    //获取当前屏幕滚动所至的模块
+                    var getTopLength = function(lens, scrollTop){
+                        for(var i = 0; i < lens.length; i++){
+                            if(scrollTop < val){
+                                return i
+                            }
+                        }
+                    };
+
+                    //设置悬浮模块
+                    var setFloat = function(scrollIndex){
+                        scope[scrollIndex] = true;
+                    };
+
+                    //获取每个模块的高度
+                    var getDivHeight = function(){
+                        var arr = [];
+                        elem.children.map(function(ele, ind){
+                            scope[ind] = false;
+                            arr.push($(ele)[0].offsetHeight);
+                        });
+                        return arr;
+                    };
+
+                    //获取累加的模块高度
+                    var getLensAdd = function(arr){
+                        var lens = [];
+                        arr.reduce(function(oVal, nVal, index, array){
+                            lens.push(oVal+nVal);
+                            return (oVal+nVal);
+                        }, 0);
+                    };
+
+                    //绑定滚动事件
+                    elem.bind('scroll',function(e){
+                        //获取当前屏幕的top已经滚动的距离
+                        var scrollTop = e.currentTarget.scrollTop;
+                        var arr = getDivHeight();
+                        var lens = getLensAdd(arr);
+                        //设置一个初始值
+                        var scrollIndex = -1;
+                        //获取当前滚动所至模块值
+                        var scrollIndex = getTopLength();
+                        setFloat(scrollIndex);
+                    });
+                }
+            };
+            return obj;
+        })
+
+    </script>
+
+</body>
+</html>
