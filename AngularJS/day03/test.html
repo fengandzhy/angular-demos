@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html lang="en" ng-app='app'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script src="angular.js"></script>
+    <script src="angular-sanitize.js"></script>-->
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-sanitize.js"></script>
+</head>
+
+<body ng-controller='MyCtrl'>
+<div ng-bind-html="html"></div>
+<div ng-bind="str"></div>
+<script type="text/javascript">
+    var app = angular.module('app',['ngSanitize']);
+    app.controller('MyCtrl',['$scope',function ($scope) {
+        $scope.html = '<span>我是html元素</span>';
+        $scope.str="字符串";
+    }])
+</script>
+</body>
+</html>

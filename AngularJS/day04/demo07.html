@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令 scope3</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day04/demo07.js"></script>
+</head>
+<body ng-controller="DirectiveController">
+    <label>父容器</label><input type="text" ng-model="data"/> <br>
+    <label>子容器</label><echo my-name="data"></echo>
+    <hr>
+
+    user.name: <input type="text" ng-model="user.name"><br>
+    user.age: <input type="text" ng-model="user.age"><br>
+    user.name={{user.name}},user.age={{user.age}}
+    <hr>
+    <!-- 在指令作用域中访问 -->
+    <div second my-user="user"></div> <!-- 此处的user表示父作用域中的user对象，不需要使用表达式{{}}，否则认为是值 -->
+    <hr>
+
+</body>
+</html>

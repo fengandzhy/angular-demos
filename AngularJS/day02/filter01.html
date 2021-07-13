@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>货币过滤器,数字过滤器</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day02/filter01.js"></script>
+</head>
+<body>
+    <div>{{3|currency}}</div>
+    <div>{{3|currency:'￥'}}</div>
+    <div>{{3.1415926|number:'2' | currency:'$'}}</div>
+    <div ng-controller="CurrencyController">
+        <h3 ng-bind="price"></h3>
+        <h3 ng-bind="price1"></h3>
+        <h3 ng-bind="price2"></h3>
+    </div>
+</body>
+</html>

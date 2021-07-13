@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>事件 on broadcast emit</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day01/demo10.js"></script>
+</head>
+<body>
+    <div ng-controller="FatherCtr1">
+        <p ng-bind="name"></p>
+        <div ng-controller="ChildCtr1">
+            <p ng-click="change()" ng-bind="name"></p>
+        </div>
+        <div ng-controller="ChildCtrl2">
+            <p ng-bind="name"></p>
+        </div>
+    </div>
+</body>
+</html>

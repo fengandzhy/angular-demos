@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>scope里定义函数</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day01/demo07.js"></script>
+</head>
+<body>
+    <div ng-controller="FirstController">
+        <h3 ng-bind="show()"></h3>
+    </div>
+
+    <div ng-controller="SecondController">
+        <button ng-click="show('abc')">click me</button>
+    </div>
+
+    <div ng-controller="FirstController">
+        <div ng-controller="SecondController">
+            <h3 ng-bind="$parent.show()"></h3>
+        </div>
+    </div>
+</body>
+</html>

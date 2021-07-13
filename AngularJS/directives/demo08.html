@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令scope4</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/directives/demo08.js"></script>
+</head>
+<body ng-controller="myCtrl">
+    <ul>
+        <li ng-bind="data.name"></li>
+        <li ng-bind="data.age"></li>
+    </ul>
+    <p>以下是子标签</p>
+    <!--请注意，指令上传递data时两边并未使用{{}}包裹-->
+    <echo my-num="data"></echo>
+</body>
+</html>

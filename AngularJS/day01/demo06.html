@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>全局scope</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day01/demo06.js"></script>
+</head>
+<body>
+<div ng-controller="FirstController">
+    <h3 ng-bind="name"></h3>
+    <div ng-controller="SecondController">
+        <h3 ng-bind="name"></h3>
+        <h3 ng-bind="$parent.name"></h3>
+        <h3 ng-bind="$root.name"></h3>
+        <h3 ng-bind="username"></h3><!--这里找不到先会去parent里面找,再会到$rootScope里面去找-->
+    </div>
+</div>
+</body>
+</html>

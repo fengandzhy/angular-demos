@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>内部指令ng-option</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day03/directive04.js"></script>
+</head>
+<!--
+ng-options="p.id as p.title for p in curOptionArray"
+ng-options使用as来指定option的value属性为p.id，文本内容为p.title，同时还指定select的ng-model值为选中的p.id
+-->
+<body ng-controller="DirectiveController">
+    <select ng-options="v.value as v.name for v in data" ng-model="city">
+        <option value="">请选择城市</option>
+    </select>
+    <h3>{{city}}</h3>
+    <br>
+    <select ng-options="u.id as u.name for u in users" ng-model="s2">
+        <option value>请选择</option>
+    </select>
+    <h3>{{s2}}</h3>
+
+    <select ng-options="k as v for (k,v) in arr" ng-model="s1">
+        <option value>请选择</option>
+    </select>
+    <h3>{{s1}}</h3>
+</body>
+</html>

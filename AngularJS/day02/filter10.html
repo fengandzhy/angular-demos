@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过滤器3</title>
+    <script src="../js/angular.js"></script>
+    <script src="../js/day02/filter10.js"></script>
+</head>
+<body ng-controller="FilterController">
+    <p>{{price | skCur : '@@':'$$'}}</p>
+    <p>{{str | firstUpcase}}</p>
+</body>
+</html>
